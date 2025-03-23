@@ -23,7 +23,12 @@ def checkprime(number):
 def accept(prime):
     number = input("Enter the " + prime + " number : ")
     n = checkint(number)
-    return n
+    m = checkprime(n)
+    if m!=None:
+        return m
+    else:
+        print("Invalid ",prime," number")
+        return accept(prime)
 
 def primitive(prime,root):
     list1 = list()
@@ -46,14 +51,15 @@ def findprimitive(prime,root):
             list3.append(s)
     return root
         
-number = accept("prime")
-prime = checkprime(number)
-if prime==None:
-    print(number," is not prime number")
-    print("so can't go further")
-    print("So Accepting Another prime number")
-    #sys.exit(0)
-    number = accept("prime")
+prime = accept("prime")
+#prime = checkprime(number)
+# if prime==None:
+#     print(number," is not prime number")
+#     print("so can't go further")
+#     print("So Accepting Another prime number")
+#     #sys.exit(0)
+#     number = accept("prime")
+#     prime = checkprime(number)
     
 
 number1 = accept("primitive root")
