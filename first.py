@@ -51,11 +51,15 @@ def findprimitive(prime,root):
             list3.append(s)
     return root
 
-def acceptprimitive():
+def acceptprimitive(p):
     while True:
         number = input("Enter the primitve root : ")
         n = checkint(number)
-        return n
+        if n<p:
+            return n
+        else:
+            print("primitve root can't be same or larger than prime")
+            return acceptprimitive(p)
 
 def acceptk(p):
     print("Enter the value of K : ",end="")
@@ -97,14 +101,15 @@ prime = acceptprime("prime")
 #     prime = checkprime(number)
     
 
-number1 = acceptprimitive()
+number1 = acceptprimitive(prime)
 list2 = list()
 list2 = primitive(prime,number1)
 if list2==None:
     print(number1," is not primitive root of ",prime)
 #list2.sort()
-print("printing the primitve value by the root of ", number1)
-print(list2)
+else:
+    print("printing the primitve value by the root of ", number1)
+    print(list2)
 
 list4 = list()
 for j in range(1,prime):
