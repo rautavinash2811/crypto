@@ -96,5 +96,13 @@ c2 = ((pt*(A**k))%p)
 print("the value of c1 and c2 is ",c1," ",c2)
 
 print("Cipher to plain text is given below as ")
-pt1 = ((c2*(c1**a)**-1)%p)
+inv=0
+print("the vlue of c1^a is ", c1**a%p)
+for i in range(1,p):
+    k = i*(c1**a)%p
+    if k==1:
+        inv = i
+        break
+print("the value of inverse is ", inv)
+pt1 = ((c2*inv)%p)
 print("The original plain text is here ", pt1)
