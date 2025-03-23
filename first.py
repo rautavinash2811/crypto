@@ -20,7 +20,7 @@ def checkprime(number):
     else:
         return None
 
-def accept(prime):
+def acceptprime(prime):
     number = input("Enter the " + prime + " number : ")
     n = checkint(number)
     m = checkprime(n)
@@ -28,7 +28,7 @@ def accept(prime):
         return m
     else:
         print("Invalid ",prime," number")
-        return accept(prime)
+        return acceptprime(prime)
 
 def primitive(prime,root):
     list1 = list()
@@ -50,8 +50,43 @@ def findprimitive(prime,root):
         else:
             list3.append(s)
     return root
-        
-prime = accept("prime")
+
+def acceptprimitive():
+    while True:
+        number = input("Enter the primitve root : ")
+        n = checkint(number)
+        return n
+
+def acceptk(p):
+    print("Enter the value of K : ",end="")
+    number = input()
+    k = checkint(number)
+    if(1<k<p-2):
+        return k
+    else:
+        print("Enter the value between valid range (1<k<p-2)")
+        return acceptk(p)
+    
+def acceptag(p):
+    print("Enter the value of a : ",end="")
+    number = input()
+    a = checkint(number)
+    if(1<a<p):
+        return a
+    else:
+        print("Enter the valid range of a (1<a<p)")
+        return acceptag(p)   
+
+def acceptplain(p):
+    number = input("Enter the plain text here : ")
+    pt = checkint(number)
+    if (0<=pt<p):
+        return pt
+    else:
+        print("Enter the valid range of plain text (0<pt<p)")
+        return acceptplain(p) 
+
+prime = acceptprime("prime")
 #prime = checkprime(number)
 # if prime==None:
 #     print(number," is not prime number")
@@ -62,9 +97,11 @@ prime = accept("prime")
 #     prime = checkprime(number)
     
 
-number1 = accept("primitive root")
+number1 = acceptprimitive()
 list2 = list()
 list2 = primitive(prime,number1)
+if list2==None:
+    print(number1," is not primitive root of ",prime)
 #list2.sort()
 print("printing the primitve value by the root of ", number1)
 print(list2)
@@ -78,29 +115,37 @@ for j in range(1,prime):
         list4.append(pr)
     
 
-print("All the primitive roots list as follows")
+print("All the primitive roots of ",prime," is as follows ")
 print(list4)
 print("total number of primitive roots of ",prime," is ",len(list4))
         
-
+print()
+print("*******************Encryption********************")
+print()
 p = prime
 print("The value of prime p is ",p)
 g = list4[0]
 print("the value of generator g is ",g)
-a = 3
-print("the value of secerate key is--> a : ",a)
+# a = 3
+# print("the value of secerate key is--> a : ",a)
+a= acceptag(p)
 A = (g**a)%p
-print("the value of A is ", A)
-number3 = input("Enter the ephemeral key k : ")
-k = checkint(number3)
+print("the Calculated value of A is ", A)
+
+k = acceptk(p)
+
 c1 = (g**k)%p
-number4 = input("Enter the plain text number  :")
-pt = checkint(number4)
+# number4 = input("Enter the plain text number  :")
+# pt = checkint(number4)
+
+pt = acceptplain(p)
 c2 = ((pt*(A**k))%p)
 
 
 print("the value of c1 and c2 is ",c1," ",c2)
-
+print()
+print("************************Decryption************************")
+print()
 print("Cipher to plain text is given below as ")
 inv=0
 print("the vlue of c1^a is ", c1**a%p)
