@@ -59,7 +59,7 @@ if prime==None:
 number1 = accept("primitive root")
 list2 = list()
 list2 = primitive(prime,number1)
-list2.sort()
+#list2.sort()
 print("printing the primitve value by the root of ", number1)
 print(list2)
 
@@ -77,5 +77,24 @@ print(list4)
 print("total number of primitive roots of ",prime," is ",len(list4))
         
 
+p = prime
+print("The value of prime p is ",p)
+g = list4[0]
+print("the value of generator g is ",g)
+a = 3
+print("the value of secerate key is--> a : ",a)
+A = (g**a)%p
+print("the value of A is ", A)
+number3 = input("Enter the ephemeral key k : ")
+k = checkint(number3)
+c1 = (g**k)%p
+number4 = input("Enter the plain text number  :")
+pt = checkint(number4)
+c2 = ((pt*(A**k))%p)
 
 
+print("the value of c1 and c2 is ",c1," ",c2)
+
+print("Cipher to plain text is given below as ")
+pt1 = ((c2*(c1**a)**-1)%p)
+print("The original plain text is here ", pt1)
