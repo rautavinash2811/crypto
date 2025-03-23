@@ -91,16 +91,7 @@ def acceptplain(p):
         return acceptplain(p) 
 
 prime = acceptprime("prime")
-#prime = checkprime(number)
-# if prime==None:
-#     print(number," is not prime number")
-#     print("so can't go further")
-#     print("So Accepting Another prime number")
-#     #sys.exit(0)
-#     number = accept("prime")
-#     prime = checkprime(number)
     
-
 number1 = acceptprimitive(prime)
 list2 = list()
 list2 = primitive(prime,number1)
