@@ -6,7 +6,7 @@ def checkint(number):
             return n
         else:
             print("Invalid Input")
-            print("Enter the correct Number : ")
+            number = input("Enter the correct Number : ")
 
 
 def checkprime(number):
