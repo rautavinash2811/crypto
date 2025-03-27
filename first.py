@@ -1,3 +1,10 @@
+# prime p = 467
+#primitive root g= 2  #given by madam.
+#show 2 is primitive and find all primitive
+#secrete no a =153  #this also given.
+#bob dicides to message m =331 ,key k = 197  
+# compute c1,c2 and aythenticate the algorithm
+
 import sys
 def checkint(number):
     while True:
