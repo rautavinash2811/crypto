@@ -28,6 +28,7 @@ def acceptprime(prime):
         return m
     else:
         print("Invalid ",prime," number")
+        #sys.exit(0)
         return acceptprime(prime)
 
 def primitive(prime,root):
