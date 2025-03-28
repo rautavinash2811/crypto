@@ -1,5 +1,5 @@
 # prime p = 467
-#primitive root g= 2  #given by madam.
+#primitive root g= 2  #given by.
 #show 2 is primitive and find all primitive
 #secrete no a =153  #this also given.
 #bob dicides to message m =331 ,key k = 197  
